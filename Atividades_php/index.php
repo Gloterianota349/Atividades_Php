@@ -1,5 +1,12 @@
 <?php
 
+//I,PORTAÇÃO DE ARQUIVOS
+require 'helpers.php';
+echo '<hr>';
+
+echo validarEnderecoEmail('ana@example.email.com');
+//echo validarEnderecoEmail('https://judge.beecrowd.com/en');
+
 //IRMÃO DO CONSOLE.LOG()
 echo "<h1>Hello World</h1>";
 echo "<hr>";
@@ -14,6 +21,14 @@ echo "<br>";
 if ($nome === "Ana" and $idade === 23) {
     echo "Seja Bem Vindo(a) " . $nome . "<br>";
 }
+
+//PHPDoc
+/**
+ *Função de saudação
+ *@param string $nome Nome do usuário
+ *@return string mensagem de saudação com o nome do usuário
+ *@author Guilherme <guilherme@gmail.com>
+*/
 
 //FUNÇÃO
 function saudacao(string $nome): string {
