@@ -1,10 +1,10 @@
 <?php
 $alunos = [
     "João" => [
-        "Nota" => 6,
+        "Nota" => 8,
     ],
     "Maria" => [
-        "Nota" => 8,
+        "Nota" => 9,
     ],
     "Pedro" => [
         "Nota" => 7,
