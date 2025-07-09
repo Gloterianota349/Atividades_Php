@@ -10,7 +10,7 @@ use PDO;
 use PDOException;
 
 // BUSCANDO DADOS DE CONFIGURAÇÃO DO BNACO DE DADOS
-require __DIR__ ."../Config/configuration.php";
+require_once __DIR__ ."/../Config/configuration.php";
 
 class Connection {
     //ATRIBUTO ESTÁTICO QUE IRÁ PERMITIR A CONEXÃO ABAIXO
