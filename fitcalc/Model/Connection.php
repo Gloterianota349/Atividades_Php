@@ -7,7 +7,7 @@ namespace Model;
 
 //IMPORTAÇÃO PARA CONEXÃO COM BANCO DE DADOS
 use PDO;
-use PDO Exception;
+use PDOException;
 
 // BUSCANDO DADOS DE CONFIGURAÇÃO DO BNACO DE DADOS
 require __DIR__ ."../Config/configuration.php";
@@ -21,10 +21,10 @@ class Connection {
         //CRIAR UMA NOVA CONEXÃO SOMENTE SE ELA NÃO EXISTIR
         try {
             if(empty(self::$connection)) {
-            self::$connection = nem PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME . '', DB_USER, DB_PASSWORD);
+            self::$connection = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME . '', DB_USER, DB_PASSWORD);
             }
         }
-        catch (PDO Exception $error) {
+        catch (PDOException $error) {
             die("Erro ao estabelecer conexão: " . $error->getMessage());
         }
         return self::$connection;
