@@ -8,9 +8,9 @@
             "Controller\\": "Controller/",
             "Model\\": "Model/"
         },
-         "files": {
+        "files": [
             "Config/configuration.php"
-        }
+        ]
     },
     "minimum-stability": "dev",
     "require": {
