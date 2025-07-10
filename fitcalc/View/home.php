@@ -1,3 +1,34 @@
+<?php
+
+require_once '../vendor/autoload.php';
+
+//IMPORTANDO A CLASSE IMCS
+use Model\Imcs;
+
+//CRIANDO UM OBJETO PARA REPRESENTAR CADA IMC CRIADO
+$imc = new Imcs();
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if(isset($_POST['weight'], $_POST['height'])) {
+        $weight = $_POST['weight'];
+        $height = $_POST['height'];
+
+        // ROUND é igual ao toFixed() do JS
+        $result = round($weight / ($height * $height), 2);
+
+        $imc->createImc($weight, $height, $result);
+    }
+}
+
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
