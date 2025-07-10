@@ -21,15 +21,38 @@ class User {
             //INSERÇÃO DE DADOS NA LINGUAGEM SQL
             $sql = 'INSERT INTO user (user_fullname, email, password, created_at) VALUES (:user_fullname, :email, :password, NOW())';
 
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
             //PREPARAR O BANCO DE DADOS PARA RECEBER O COMANDO ACIMA
             $stmt = $this->db->prepare($sql);
 
             //REFERENCIAR OS DADOS PASSADOS PELO COMANDO SQL COM OS PARÂMETROS DA FUNÇAÕ
-            $stmt->bindParam(":user_fullname", $user_fullname, PDO);
+            $stmt->bindParam(":user_fullname", $user_fullname, PDO::PARAM_STR);
+            $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+            $stmt->bindParam(":password", $hashedPassword, PDO::PARAM_STR);
 
             //EXECUTAR TUDO
+
+            $stmt->execute();
         }
-        catch (PDOException $error) {}
+        catch (PDOException $error) {
+            //EXIBIR MENSAGEM DE ERRO COMPLETA E PARAR A EXECUÇÃO
+            echo "Erro ao executar o comando " . $error->getMessage();
+            return false;
+        }
+    }
+
+    public function getUserEmail() {
+
+    }
+
+    public function getUserInfo($user_fullname, $email) {
+        try {
+
+        }
+        catch (PDOException $error) {
+
+        }
     }
 }
 
